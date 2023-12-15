@@ -4,6 +4,8 @@ import ConcatList from "./components/ConcatList";
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import EditContact from "./components/EditContact";
+import ConcatPage from "./components/ConcatPage";
+
 function concatReducer(state, action) {
   switch (action.type) {
     case "add":
@@ -67,6 +69,7 @@ function App() {
             />
           }
         />
+        <Route path="/concatPage" element={<ConcatPage />} />
       </Routes>
     </div>
   );
