@@ -31,7 +31,8 @@ function Form({ addConcatHandler }) {
     setImagePreview(previewURL);
   };
 
-  const addConcat = () => {
+  const addConcat = (e) => {
+    e.preventDefault();
     if (
       concat.concatName !== "" &&
       concat.concatNumber !== "" &&
@@ -57,7 +58,10 @@ function Form({ addConcatHandler }) {
   };
 
   return (
-    <div className="flex flex-col gap-y-5 justify-between items-start">
+    <form
+      onSubmit={addConcat}
+      className="flex flex-col gap-y-5 justify-between items-start"
+    >
       {imagePreview && (
         <img
           src={imagePreview}
@@ -65,6 +69,7 @@ function Form({ addConcatHandler }) {
           className="w-28 h-28 rounded-full"
         />
       )}
+      <ImageUpload handelImage={handleImageChange} />
       <Input
         type="text"
         className="outline-none"
@@ -81,9 +86,8 @@ function Form({ addConcatHandler }) {
         value={concat.concatNumber}
         onChange={handleInputChange}
       />
-      <ImageUpload handelImage={handleImageChange} />
 
-      <button onClick={addConcat} className="bg-gray-300 py-3 rounded-lg px-3">
+      <button type="submit" className="bg-gray-300 py-3 rounded-lg px-3">
         Add
       </button>
       <Link to="/ConcatList">
@@ -91,7 +95,7 @@ function Form({ addConcatHandler }) {
           see all concats
         </button>
       </Link>
-    </div>
+    </form>
   );
 }
 
