@@ -7,6 +7,7 @@ function EditContact({ concatToEdit, saveHandler }) {
     concatName: "",
     concatNumber: "",
   });
+  // console.log(concatToEdit);
 
   useEffect(() => {
     if (concatToEdit) {

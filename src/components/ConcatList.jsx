@@ -15,7 +15,7 @@ function ConcatList({ concatList, removeConcatHandler, editHandler }) {
                 remove
               </button>
               <Link to={`/editContact/:${item.id}`}>
-                <button>edit</button>
+                <button onClick={() => editHandler(item)}>edit</button>
               </Link>
             </div>
           );
